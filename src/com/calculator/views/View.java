@@ -69,7 +69,7 @@ public class View extends JFrame {
     initNumbersPane(panel);
     initOperationsPane(panel);
 
-    validate();
+    validate();        
   }
   
   private void initDisplayScreen(JPanel panel) {
@@ -270,7 +270,7 @@ public class View extends JFrame {
   }
 
   private void showResult(double result) {
-    if (result % 1 == 0) {
+    if (result < Integer.MAX_VALUE && result < Integer.MIN_VALUE && result % 1 == 0) {
       displayScreen.setText(String.valueOf((int)this.result));
     } else {
       displayScreen.setText(String.valueOf((this.result))); 

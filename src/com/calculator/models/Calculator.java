@@ -2,7 +2,7 @@ package com.calculator.models;
 
 public class Calculator {
 
-  double memory;
+  private double memory;
   
   public Calculator() {
     memory = 0;
