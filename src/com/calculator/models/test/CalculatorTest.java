@@ -95,4 +95,11 @@ public class CalculatorTest {
     resultActual = calculator.div(5,0);
     assertEquals(resultExpected,resultActual,0);   
   }
+  
+  @Test 
+  public void rootSquareTest(){
+    resultExpected = 2;
+    resultActual = calculator.squareRoot(4);
+    assertEquals(resultExpected, resultActual,0);
+  }
 }
