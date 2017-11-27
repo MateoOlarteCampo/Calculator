@@ -17,19 +17,19 @@ import javax.swing.border.EmptyBorder;
 
 public class View extends JFrame {
 
-  private static final String ADD_SYMBOL = "+";
-  private static final String SUB_SYMBOL = "-";
-  private static final String DIV_SYMBOL = "/";
-  private static final String PRODUCT_SYMBOL = "*";
-  private static final String SQUARE_ROOT_SYMBOL = "\u221A";
-  private static final String SQUARED_SYMBOL = "x2";
-  private static final String MEMORY_SAVE_SYMBOL = "M";
-  private static final String MEMORY_ADD_SYMBOL = "M+";
-  private static final String MEMORY_SUB_SYMBOL = "M-";
-  private static final String MEMORY_RECOVER_SYMBOL = "MR";
-  private static final String MEMORY_CLEAR_SYMBOL = "MC";
-  private static final String EQUAL_SYMBOL = "=";
-  private static final String CLEAR_OPERATION_SYMBOL = "CE";
+  private static final String S_ADD_SYMBOL = "+";
+  private static final String S_SUB_SYMBOL = "-";
+  private static final String S_DIV_SYMBOL = "/";
+  private static final String S_PRODUCT_SYMBOL = "*";
+  private static final String S_SQUARE_ROOT_SYMBOL = "\u221A";
+  private static final String S_SQUARED_SYMBOL = "x2";
+  private static final String S_MEMORY_SAVE_SYMBOL = "M";
+  private static final String S_MEMORY_ADD_SYMBOL = "M+";
+  private static final String S_MEMORY_SUB_SYMBOL = "M-";
+  private static final String S_MEMORY_RECOVER_SYMBOL = "MR";
+  private static final String S_MEMORY_CLEAR_SYMBOL = "MC";
+  private static final String S_EQUAL_SYMBOL = "=";
+  private static final String S_CLEAR_OPERATION_SYMBOL = "CE";
  
   /** Pantalla para mostrar datos */
   JTextField displayScreen;
@@ -100,7 +100,7 @@ public class View extends JFrame {
     rowNumbersPane.setLayout(new GridLayout(1, 3));
     createNumberButton(String.valueOf(0),rowNumbersPane);
     createNumberButton(".",rowNumbersPane);
-    createNumberButton(EQUAL_SYMBOL,rowNumbersPane);
+    createNumberButton(S_EQUAL_SYMBOL,rowNumbersPane);
     numbersPane.add(rowNumbersPane);
    
     panel.add("Center", numbersPane); 
@@ -121,7 +121,7 @@ public class View extends JFrame {
         JButton btn = (JButton) evt.getSource();
         String symbolPressed = btn.getText();
         
-        if (!symbolPressed.equals(EQUAL_SYMBOL)){
+        if (!symbolPressed.equals(S_EQUAL_SYMBOL)){
           numberPressed(symbolPressed);         
         } else {
           operacionPulsado(symbolPressed);
@@ -137,18 +137,18 @@ public class View extends JFrame {
     operationsPane.setLayout(new GridLayout(4, 1));
     operationsPane.setBorder(new EmptyBorder(4, 4, 4, 4));
 
-    createOperationButton(ADD_SYMBOL);
-    createOperationButton(SUB_SYMBOL);
-    createOperationButton(PRODUCT_SYMBOL);
-    createOperationButton(DIV_SYMBOL);
-    createOperationButton(SQUARED_SYMBOL);
-    createOperationButton(SQUARE_ROOT_SYMBOL);
-    createOperationButton(MEMORY_SAVE_SYMBOL);
-    createOperationButton(MEMORY_ADD_SYMBOL);
-    createOperationButton(MEMORY_SUB_SYMBOL);
-    createOperationButton(MEMORY_RECOVER_SYMBOL);
-    createOperationButton(MEMORY_CLEAR_SYMBOL);
-    createOperationButton(CLEAR_OPERATION_SYMBOL);
+    createOperationButton(S_ADD_SYMBOL);
+    createOperationButton(S_SUB_SYMBOL);
+    createOperationButton(S_PRODUCT_SYMBOL);
+    createOperationButton(S_DIV_SYMBOL);
+    createOperationButton(S_SQUARED_SYMBOL);
+    createOperationButton(S_SQUARE_ROOT_SYMBOL);
+    createOperationButton(S_MEMORY_SAVE_SYMBOL);
+    createOperationButton(S_MEMORY_ADD_SYMBOL);
+    createOperationButton(S_MEMORY_SUB_SYMBOL);
+    createOperationButton(S_MEMORY_RECOVER_SYMBOL);
+    createOperationButton(S_MEMORY_CLEAR_SYMBOL);
+    createOperationButton(S_CLEAR_OPERATION_SYMBOL);
     
     panel.add("East", operationsPane);    
   }
@@ -193,7 +193,7 @@ public class View extends JFrame {
    */
   private void operacionPulsado(String tecla) {
     switch (tecla) {
-      case EQUAL_SYMBOL:
+      case S_EQUAL_SYMBOL:
         if (!operation.equals("") && !newOperation) {
           calcularResultado();
         } else {
@@ -201,29 +201,29 @@ public class View extends JFrame {
           operation = "";
         }
         break;
-      case CLEAR_OPERATION_SYMBOL:
+      case S_CLEAR_OPERATION_SYMBOL:
         result = 0;
         newOperation = true;
         break;
-      case SQUARE_ROOT_SYMBOL:
+      case S_SQUARE_ROOT_SYMBOL:
         result = calculator.squareRoot(new Double(displayScreen.getText()));
         break;
-      case SQUARED_SYMBOL:
+      case S_SQUARED_SYMBOL:
         result = calculator.squared(new Double(displayScreen.getText()));
         break;
-      case MEMORY_SAVE_SYMBOL:
+      case S_MEMORY_SAVE_SYMBOL:
         calculator.memorySave(new Double(displayScreen.getText()));
         break;
-      case MEMORY_ADD_SYMBOL:
+      case S_MEMORY_ADD_SYMBOL:
         calculator.memoryPlus(new Double(displayScreen.getText()));
         break;
-      case MEMORY_SUB_SYMBOL:
+      case S_MEMORY_SUB_SYMBOL:
         calculator.memorySub(new Double(displayScreen.getText()));
         break;
-      case MEMORY_RECOVER_SYMBOL:
+      case S_MEMORY_RECOVER_SYMBOL:
         result = calculator.memoryRecover();
         break;
-      case MEMORY_CLEAR_SYMBOL:
+      case S_MEMORY_CLEAR_SYMBOL:
         calculator.memoryClear();
         break;
       default:
@@ -245,13 +245,13 @@ public class View extends JFrame {
    */
   private void calcularResultado() {
     switch (operation) {
-      case ADD_SYMBOL:
+      case S_ADD_SYMBOL:
         result = calculator.add(result, new Double(displayScreen.getText()));
         break;
-      case SUB_SYMBOL:
+      case S_SUB_SYMBOL:
         result = calculator.sub(result, new Double(displayScreen.getText()));
         break;
-      case DIV_SYMBOL:
+      case S_DIV_SYMBOL:
         double denominator = new Double(displayScreen.getText());
         if (denominator > 0) {
           result = calculator.div(result, denominator);
@@ -260,7 +260,7 @@ public class View extends JFrame {
           result = 0;
         }
         break;
-      case PRODUCT_SYMBOL:
+      case S_PRODUCT_SYMBOL:
         result = calculator.product(result, new Double(displayScreen.getText()));
         break;
       default:

@@ -8,32 +8,32 @@ public class Calculator {
     memory = 0;
   }
   
-  public double add(double operator1, double operator2) {
-    return operator1 + operator2;
+  public double add(double first_operator, double second_operator) {
+    return first_operator + second_operator;
   }
 
-  public double sub(double operator1, double operator2) {
-    return operator1 - operator2;
+  public double sub(double first_operator, double second_operator) {
+    return first_operator - second_operator;
   }
 
-  public double div(double operator1, double operator2) {
-    return operator1 / operator2;
+  public double div(double first_operator, double second_operator) {
+    return first_operator / second_operator;
   }
 
-  public double product(double operator1, double operator2) {
-    return operator1 * operator2;
+  public double product(double first_operator, double second_operator) {
+    return first_operator * second_operator;
   }
 
-  public double squareRoot(double operator1) {
-    return Math.sqrt(operator1);
+  public double squareRoot(double operator) {
+    return Math.sqrt(operator);
   }
 
-  public double squared(double operator1) {
-    return Math.pow(operator1, 2);
+  public double squared(double operator) {
+    return Math.pow(operator, 2);
   }
 
-  public void memorySave(double newMemory) {
-    this.memory = newMemory;
+  public void memorySave(double new_memory) {
+    this.memory = new_memory;
   }
 
   public void memoryPlus(double value) {
