@@ -36,12 +36,12 @@ public class Calculator {
     this.memory = newMemory;
   }
 
-  public void memoryPlus(double value) {
-    this.memory += value;
+  public void memoryPlus() {
+    this.memory += 1;
   }
 
-  public void memorySub(double value) {
-    this.memory -= value;
+  public void memorySub() {
+    this.memory -= 1;
   }
 
   public void memoryClear() {

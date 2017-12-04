@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.nio.channels.ShutdownChannelGroupException;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -215,10 +217,14 @@ public class View extends JFrame {
         calculator.memorySave(new Double(displayScreen.getText()));
         break;
       case MEMORY_ADD_SYMBOL:
-        calculator.memoryPlus(new Double(displayScreen.getText()));
+        calculator.memoryPlus();
+        result = calculator.memoryRecover();
+        showResult(result);
         break;
       case MEMORY_SUB_SYMBOL:
-        calculator.memorySub(new Double(displayScreen.getText()));
+        calculator.memorySub();
+        result = calculator.memoryRecover();
+        showResult(result);
         break;
       case MEMORY_RECOVER_SYMBOL:
         result = calculator.memoryRecover();
@@ -270,7 +276,7 @@ public class View extends JFrame {
   }
 
   private void showResult(double result) {
-    if (result < Integer.MAX_VALUE && result < Integer.MIN_VALUE && result % 1 == 0) {
+    if (result % 1 == 0) {
       displayScreen.setText(String.valueOf((int)this.result));
     } else {
       displayScreen.setText(String.valueOf((this.result))); 
